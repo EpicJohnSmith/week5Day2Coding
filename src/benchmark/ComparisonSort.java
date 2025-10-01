@@ -35,5 +35,50 @@ public class ComparisonSort
 	    }
 	 
 	    
-	  
+	  // Now, onto selection sort
+	   private static void selectionSort(int[] numbers) // Used zyBook section 3.3
+	    {
+	        for (int i = 0; i < numbers.length - 1; i++)
+	        {
+	           // Find index of smallest remaining element
+	           int indexSmallest = i;
+	           for (int j = i + 1; j < numbers.length; j++)
+	           {
+	              if (numbers[j] < numbers[indexSmallest])
+	              {
+	                 indexSmallest = j;
+	              }
+	           }
+	           
+	           // Swap numbers[i] and numbers[indexSmallest]
+	           int temp = numbers[i];
+	           numbers[i] = numbers[indexSmallest];
+	           numbers[indexSmallest] = temp;
+	        }
+	     }
+	    
+	   public static void main(String[] args)
+	   {
+	        int size = 10000;
+	        int[] originalArray = RandomizedArray(size, 1, 100000);
+
+	        // Duplicate arrays
+	        int[] bubbleArray = Arrays.copyOf(originalArray, originalArray.length);
+	        int[] selectionArray = Arrays.copyOf(originalArray, originalArray.length);
+
+	        // Bubble Sort timing
+	        long start = System.currentTimeMillis();
+	        bubbleSort(bubbleArray);
+	        long finish = System.currentTimeMillis();
+	        long bubbleTime = finish - start;
+
+	        // Selection Sort timing
+	        start = System.currentTimeMillis();
+	        selectionSort(selectionArray);
+	        finish = System.currentTimeMillis();
+	        long selectionTime = finish - start;
+	        
+	    //Print the results
+	    System.out.println("Sorting a random array size of " + size + " took Bubble Sort " + bubbleTime + "ms to complete.");
+        System.out.println("Sorting a random array size of " + size + " took Selection Sort " + selectionTime + "ms to complete.");
 }
