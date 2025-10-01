@@ -7,7 +7,7 @@ public class ComparisonSort
 {
 
     // Generate random array
-    public static int[] RandomizedArray(int size, int start, int end) // AI uses RandomizedArray...I think I understand why
+    public static int[] RandomizedArray(int size, int start, int end) // Instructions said to use this way, I think I understand why
     {
         Random rand = new Random();
         int[] arr = new int[size];
@@ -18,7 +18,7 @@ public class ComparisonSort
     }
 
     // Bubble Sort
-    public static void bubbleSort(int arr[]) // Used GeeksforGeeks bubble sort documentation for reference
+    public static void bubbleSort(int arr[]) // Used GeeksforGeeks bubble sort documentation for reference...makes sense in code now
     {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++)
@@ -37,7 +37,7 @@ public class ComparisonSort
     }
 
     // Selection Sort
-    public static void selectionSort(int[] numbers) // Used zyBook Section 3.3 for reference
+    public static void selectionSort(int[] numbers) // Used zyBook Section 3.3 for reference...yeah, I'm kind of new to these algorithms
     {
         for (int i = 0; i < numbers.length - 1; i++)
         {
