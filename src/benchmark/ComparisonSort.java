@@ -66,13 +66,13 @@ public class ComparisonSort
         int[] bubbleArray = Arrays.copyOf(originalArray, originalArray.length);
         int[] selectionArray = Arrays.copyOf(originalArray, originalArray.length);
 
-        // Bubble Sort timing right here
+        // Bubble Sort timing right here with instructed code
         long start = System.currentTimeMillis();
         bubbleSort(bubbleArray);
         long finish = System.currentTimeMillis();
         long bubbleTime = finish - start;
 
-        // Selection Sort timing also right here
+        // Selection Sort timing also right here with instructed code
         start = System.currentTimeMillis();
         selectionSort(selectionArray);
         finish = System.currentTimeMillis();
