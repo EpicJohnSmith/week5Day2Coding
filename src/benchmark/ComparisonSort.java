@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class ComparisonSort
 {
 
-    // Generate random array
+    // Generate random array because why not?
     public static int[] RandomizedArray(int size, int start, int end) // Instructions said to use this way, I think I understand why
     {
         Random rand = new Random();
@@ -56,6 +56,23 @@ public class ComparisonSort
             numbers[indexSmallest] = temp;
         }
     }
+    
+    // Insertion Sort is here
+    public static void insertionSort(int[] arr) // AI believes that this documentation is the way, I can understand it
+    {
+        for (int i = 1; i < arr.length; i++)
+        {
+            int key = arr[i];
+            int j = i - 1;
+            // Shift elements greater than key to one position ahead
+            while (j >= 0 && arr[j] > key)
+            {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
 
     public static void main(String[] args)
     {
@@ -65,6 +82,7 @@ public class ComparisonSort
         // Duplicate arrays because I was told to do so
         int[] bubbleArray = Arrays.copyOf(originalArray, originalArray.length);
         int[] selectionArray = Arrays.copyOf(originalArray, originalArray.length);
+        int[] insertionArray = Arrays.copyOf(originalArray, originalArray.length);
 
         // Bubble Sort timing right here with instructed code
         long start = System.currentTimeMillis();
@@ -77,9 +95,16 @@ public class ComparisonSort
         selectionSort(selectionArray);
         finish = System.currentTimeMillis();
         long selectionTime = finish - start;
+        
+        // Insertion Sort timing with this instructed code
+        start = System.currentTimeMillis();
+        insertionSort(insertionArray);
+        finish = System.currentTimeMillis();
+        long insertionTime = finish - start;
 
         // Print the results just like the instructions said to do
         System.out.println("Sorting a random array size of " + size + " took Bubble Sort " + bubbleTime + "ms to complete.");
         System.out.println("Sorting a random array size of " + size + " took Selection Sort " + selectionTime + "ms to complete.");
+        System.out.println("Sorting a random array size of " + size + " took Insertion Sort " + insertionTime + "ms to complete.");
     }
 }
